@@ -117,8 +117,8 @@
 		legend.onAdd = function (map) {
 
 		var div = L.DomUtil.create('div', 'legend'),
-			grades = [0, 1847, 3852, 5368, 8257], // The break values to define the intervals of population, note we begin from 0 here
-			labels = [];
+			grades = [0, 1847, 3852, 5368, 8257]; // The break values to define the intervals of population, note we begin from 0 here
+			
 		div.innerHTML = '<b>2010 Chicago Population Density<br> by Neighborhood<br></b>'; // The legend title (HTML-based), in this case it's Population Density 2011
 
 		// Loop through our the classes and generate a label with a color box for each interval.
