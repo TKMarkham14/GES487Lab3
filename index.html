@@ -16,16 +16,16 @@
 	<style>
 		.legend {
 		  padding: 6px 8px;
-		  line-height: 18 px;
+		  line-height: 18px;
 		  background: rgba(255,255,255,0.9);
 		  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 		  border-radius: 5px;
 				}
 	   
 	   .legend i {
-		  width: 20 px;
-		  height: 20 px;
-		  float: right;
+		  width: 20px;
+		  height: 20px;
+		  float: left;
 		  margin-right: 8px;
 		  opacity: 0.7;
 				 }
@@ -34,7 +34,7 @@
     </head>
 
     <body>
-        <div id="map" style="height: 1000px"></div>
+        <div id="map" style="height: 500px"></div>
 
         <script type="text/javascript">
 
@@ -90,7 +90,9 @@
 			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) 
 			{feature.bringToFront();}					
 										}	
-										
+			
+			var geojson; // define a variable to make the geojson layer accessible for the funtion to use   
+			function resetHighlight(e) 		{							
 			
 			function onEachFeature(feature, layer) {
 				layer.on({
@@ -98,8 +100,7 @@
 					mouseout: resetHighlight,    // Do what defined by the resetHighlight function on mouseout
 						});
 													}							
-		var geojson; // define a variable to make the geojson layer accessible for the funtion to use   
-			function resetHighlight(e) 		{
+		
 			geojson.resetStyle(e.target);	}
 				
 				
