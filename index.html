@@ -93,30 +93,24 @@
 			
 			var geojson; // define a variable to make the geojson layer accessible for the funtion to use   
 			function resetHighlight(e) 		{							
+			geojson.resetStyle(e.target);	}
 			
 			function onEachFeature(feature, layer) {
 				layer.on({
 					mouseover: highlightFeature, // Do what defined by the highlightFeature function on mouseover
 					mouseout: resetHighlight,    // Do what defined by the resetHighlight function on mouseout
 						});
-													}							
-		
-			geojson.resetStyle(e.target);	}
-				
-				
+													}					
 		geojson = L.geoJson(data, {
-			style:style
-		 ,onEachFeature: onEachFeature
+			style:style,
+		 onEachFeature: onEachFeature
 				}).bindTooltip(function (layer){
 		return layer.feature.properties.community 
 				+ '<p style="color:blue">' + layer.feature.properties.PopDen.toString() + '<br> People/SQ KM </p>';       
 				}).addTo(map);
 			
-			
 		var legend = L.control({position: 'topleft'}); // Try the other three corners if you like.
-
 		legend.onAdd = function (map) {
-
 		var div = L.DomUtil.create('div', 'legend'),
 			grades = [0, 1847, 3852, 5368, 8257]; // The break values to define the intervals of population, note we begin from 0 here
 			
